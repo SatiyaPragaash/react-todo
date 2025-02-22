@@ -1,0 +1,121 @@
+/* Centering the Home container */
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    font-family: 'Monaco', Monospace;
+}
+
+/* Styling for input fields */
+.create_form input {
+    width: 320px;
+    padding: 12px;
+    border: 2px solid #0a830c;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Input focus effect */
+.create_form input:focus {
+    border-color: #001104;
+    box-shadow: 0 0 8px rgba(2, 62, 5, 0.645);
+}
+/* Styling the button */
+.create_form button {
+    margin-left: 10px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Button hover effect */
+.create_form button:hover {
+    background: linear-gradient(135deg, #0056b3, #003c7c);
+    transform: scale(1.05);
+}
+
+/* Button active effect */
+.create_form button:active {
+    transform: scale(0.98);
+}
+
+/* 
+Styling of tasks */
+
+    /* Styling of tasks */
+.task {
+    display: flex;
+    align-items: center;
+    width: 345px;
+    justify-content: space-between;
+    background-color: #ffffff;
+    color: #333333;
+    height: 35px;
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+    /* Task hover effect */
+.task:hover {
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+    /* Task completed state */
+.task.completed {
+    text-decoration: line-through;
+    color: #999999;
+}
+
+/* Styling for the icons */
+.icon {
+    font-size: 20px; /* Adjust icon size */
+    color: #1d1d1d; /* Default color */
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Change checkbox color on hover */
+.checkbox:hover .icon {
+    color: #0fb135; /* Blue on hover */
+}
+
+/* Completed task checkbox */
+.task.completed .checkbox .icon {
+    color: #28a745; /* Green when completed */
+}
+
+/* Trash icon hover effect */
+.task span .icon:hover {
+    color: #dc3545; /* Red on hover */
+}
+
+.checkbox {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+    gap: 30px; /* Creates spacing between the icon and text */
+}
+
+.checkbox .icon {
+    font-size: 20px; /* Adjust size */
+    color: #333; /* Dark gray */
+    vertical-align: middle; /* Ensures proper vertical alignment */
+    cursor: pointer;
+}
