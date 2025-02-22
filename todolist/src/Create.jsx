@@ -1,19 +1,40 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-function Create() {
-  const [task, setTask] = useState()
-  const handleAdd = () =>{
-    axios.post('http://localhost:3001/add' , {task: task})
-    .then(result => console.log(result))
-    .catch(err => console.log(err))
-  }
+function Create({ setTodos }) { // ✅ Accept setTodos as a prop
+  const [task, setTask] = useState("");
+
+  const handleAdd = () => {
+    if (!task.trim()) return; // Prevent adding empty tasks
+
+    const newTodo = { _id: Date.now().toString(), task, done: false }; // Temporary task
+
+    // ✅ Update UI first
+    setTodos(prevTodos => [...prevTodos, newTodo]);
+
+    // ✅ Then make API request
+    axios.post('http://localhost:3001/add', { task })
+      .then(result => {
+        setTodos(prevTodos => prevTodos.map(todo =>
+          todo._id === newTodo._id ? result.data : todo
+        ));
+      })
+      .catch(err => console.log(err));
+
+    setTask(""); // ✅ Clear input field after adding
+  };
+
   return (
     <div className="create_form">
-        <input type="text" name="" id="" placeholder='Enter task' onChange={(e) => setTask(e.target.value)}/> 
-        {<button type="button" onClick={handleAdd}>Add</button>  /* on click we call the handleadd function which will pass the value to the database server. */}
+      <input 
+        type="text" 
+        placeholder="Enter task" 
+        value={task} 
+        onChange={(e) => setTask(e.target.value)} 
+      /> 
+      <button type="button" onClick={handleAdd}>Add</button>
     </div>
-  )
+  );
 }
 
-export default Create
+export default Create;

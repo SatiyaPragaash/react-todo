@@ -4,17 +4,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 30px;
     /* justify-content: center; */
     min-height: 100vh;
     background-color: #f4f4f4;
-    font-family: 'Monaco', Monospace;
+    font-family: 'Lucida Console', Monospace;
 }
 
 /* Styling for input fields */
 .create_form input {
     width: 320px;
     padding: 12px;
-    border: 2px solid #0a830c;
+    margin-top: 20px;
+    border: 2px solid #0a830c75;
     border-radius: 5px;
     outline: none;
     font-size: 16px;
@@ -30,9 +32,9 @@
 .create_form button {
     margin-left: 10px;
     padding: 12px 20px;
-    background: linear-gradient(135deg, #007bff, #0056b3);
+    background: linear-gradient(135deg, #00c50392, #00bf36);
     border: none;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: bold;
     border-radius: 5px;
@@ -43,7 +45,7 @@
 
 /* Button hover effect */
 .create_form button:hover {
-    background: linear-gradient(135deg, #0056b3, #003c7c);
+    background: linear-gradient(135deg, #00b31b, #007c06);
     transform: scale(1.05);
 }
 
@@ -111,6 +113,9 @@ Styling of tasks */
     display: flex;
     align-items: center; /* Aligns items vertically */
     gap: 30px; /* Creates spacing between the icon and text */
+    margin: 0;
+    font-size: 16px;
+    line-height: 1;
 }
 
 .checkbox .icon {
@@ -118,4 +123,38 @@ Styling of tasks */
     color: #333; /* Dark gray */
     vertical-align: middle; /* Ensures proper vertical alignment */
     cursor: pointer;
+}
+
+
+.checkbox input[type="checkbox"] {
+    display: none; /* Hide the default checkbox */
+}
+
+.checkbox input[type="checkbox"] + .icon_check::before {
+    content: '\2713'; /* Unicode for check mark */
+    display: none; /* Hide the check mark by default */
+    font-size: 20px; /* Adjust size */
+    color: #28a745; /* Green color */
+}
+
+.checkbox input[type="checkbox"]:checked + .icon_check::before {
+    display: inline; /* Show the check mark when checked */
+}
+
+.checkbox .icon_check:hover {
+    color: #28a745; /* Green on hover */
+}
+
+.checkbox .icon_check:active {
+    transform: scale(0.9); /* Slightly reduce size on active */
+}
+
+.line_through {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px; /* Adjust thickness */
+    text-decoration-color: #333; /* Adjust color if needed */
+    text-decoration-line: line-through;
+    
+    display: inline-block; /* Ensure correct width */
+    vertical-align: middle; /* Align text properly */
 }
